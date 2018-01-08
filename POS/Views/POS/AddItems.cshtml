@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "AddItems";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Add New Items</h2>
+@using (Html.BeginForm("AddNewItem", "POS"))
+{
+    <button type="submit" class="btn btn-primary">Add New Item</button>
+}
+
+@using (Html.BeginForm("IncreaseStock", "POS"))
+{
+    <button type="submit" class="btn btn-primary">Increase Stock</button>
+}

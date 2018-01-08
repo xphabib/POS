@@ -1,0 +1,19 @@
+﻿@model List<POS.Models.Stock>
+@{
+    ViewBag.Title = "AddNewItem";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Add New Item</h2>
+
+@using (Html.BeginForm("SuccessfullyAddedNewItem", "POS"))
+{
+    <label for="itemName">Enter Item's Name</label>
+    @Html.TextBox("itemName")
+    <label for="itemPrice">Enter Item's Price</label>
+    @Html.TextBox("itemPrice")
+    <label for="itemQuentity">Enter Quentity</label>
+    @Html.TextBox("itemQuentity")
+    <button type="submit" class="btn btn-primary">Submit</button>
+}
+

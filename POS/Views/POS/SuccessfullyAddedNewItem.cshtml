@@ -1,0 +1,14 @@
+﻿@model List<POS.Models.Stock>
+@{
+    ViewBag.Title = "SuccessfullyAddedNewItem";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Successfully Added New Item</h2>
+
+@foreach (var i in @Model)
+{
+    <h1>@i.Item.Name</h1>
+    <h1>@i.Item.Price</h1>
+    <h1>@i.Quantity</h1>
+}

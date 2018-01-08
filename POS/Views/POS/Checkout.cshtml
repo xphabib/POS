@@ -1,0 +1,27 @@
+﻿@model List<POS.Models.BoughtItem>
+@{
+    ViewBag.Title = "Checkout";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var a = 0;
+}
+
+<h2>Your Bought Items</h2>
+
+<h5>Item_Name Unit_Price Quantity Total_Price</h5>
+@foreach (var boughtItems in Model)
+{
+    <table>
+        <tr>
+            <td>@boughtItems.Item.Name</td>
+            <td>@boughtItems.Item.Price</td>
+            <td>@boughtItems.Quantity</td>
+            <td>@boughtItems.Quantity * @boughtItems.Item.Price</td>
+        </tr>
+    </table>
+    a += (@boughtItems.Quantity * @boughtItems.Item.Price);
+}
+
+<div>
+    <h4>Grand Total: @a BDT</h4>
+</div>
+

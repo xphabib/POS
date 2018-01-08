@@ -1,0 +1,39 @@
+﻿@model List<POS.Models.Stock>
+@{
+    ViewBag.Title = "Customer";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>What Product You Want to Buy</h2>
+
+@foreach (var product in Model)
+{
+    <table>
+        <tbody>
+        <tr>
+            <td>Item Name: @product.Item.Name</td>
+            <td> Price: @product.Item.Price Taka</td>
+            <td>In Stock: @product.Quantity</td>
+            <td>
+                @using (Html.BeginForm("ListingItems", "POS", new {ItemId = product.Item.Id}))
+                {
+                    <label for="quantity">Enter Quantity</label>
+                    @Html.TextBox("quantity")
+                        
+                    <button type="submit" class="btn btn-primary">Add to cart</button>
+                }
+            </td>
+        </tr>
+        </tbody>
+    </table>
+}
+
+@using (Html.BeginForm("Checkout", "POS"))
+{
+    <button type="submit" class="btn btn-primary">Process to checkout</button>
+}
+@using (Html.BeginForm("Customer", "POS"))
+{
+    <button type="submit">Go back Home</button>    
+}
+
